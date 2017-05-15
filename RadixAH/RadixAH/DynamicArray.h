@@ -6,13 +6,16 @@ template<typename T>
 class DynamicArray
 {
 public:
-	DynamicArray() 
-	{	};
+	DynamicArray(T size) 
+	{
+		data = new T[size];
+		m_capacity = size;
+		m_used = 0;
+	};
 	~DynamicArray() 
 	{
 		delete[] data;
 	};
-
 
 	DynamicArray::DynamicArray(const DynamicArray& other)
 	{
@@ -21,7 +24,7 @@ public:
 		memcpy(data, other.data, sizeof(T) * m_capacity);
 	}
 
-	DynamicArray DynamicArray::operator=(const DynamicArray& other)
+	DynamicArray& DynamicArray::operator=(const DynamicArray& other)
 	{
 		if (this == &other) return *this;
 		delete[] data;
@@ -31,12 +34,24 @@ public:
 		return *this;
 	}
 
-	void DynamicArray::CreateArray(T size)
+	DynamicArray::DynamicArray(String&& other)
 	{
-		data = new T[size];
-		m_capacity = size;
-		m_used = 0;
+		m_length = other.m_length;
+		m_text = other.m_text;
+		other.m_length = 0;
+		other.m_text = nullptr;
 	}
+
+	String& String::operator= (String&& other)
+	{
+		m_length = other.m_length;
+		m_text = other.m_text;
+		other.m_length = 0;
+		other.m_text = nullptr;
+
+		return *this;
+	}
+
 
 	void DynamicArray::addToArrayEnd(T nElement)
 	{
@@ -46,7 +61,7 @@ public:
 			memcpy(data, other.data, sizeof(T) * m_capacity);
 			delete data;
 			data = nData;
-			m_capacity* = 2
+			m_capacity *= 2
 		}
 		data[m_used] = nElement;
 		used += 1;
@@ -80,8 +95,6 @@ public:
 	}
 
 	T* data;
-	//DynamicArray* nData
-	//DynamicArray* data;
 	int m_capacity;
 	int m_used;
 	int m_length;

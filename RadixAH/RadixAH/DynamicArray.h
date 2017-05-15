@@ -6,21 +6,17 @@ template<typename T>
 class DynamicArray
 {
 public:
-	DynamicArray( T size) 
-	{
-		data = new DynamicArray[size];
-		m_capacity = size;
-		m_used = 0;
-	};
+	DynamicArray() 
+	{	};
 	~DynamicArray() 
 	{
-		delete[] DynamicArray;
+		delete[] data;
 	};
 
 
 	DynamicArray::DynamicArray(const DynamicArray& other)
 	{
-		data = new DynamicArray[other.m_capacity];
+		data = new T[other.m_capacity];
 		m_capacity = other.m_capacity;
 		memcpy(data, other.data, sizeof(T) * m_capacity);
 	}
@@ -29,25 +25,63 @@ public:
 	{
 		if (this == &other) return *this;
 		delete[] data;
-		data = new DynamicArray[other.m_capacity];
+		data = new T[other.m_capacity];
 		m_capacity = other.m_capacity;
 		memcpy(data, other.data, sizeof(T) * m_capacity);
 		return *this;
 	}
 
-	void DynamicArray::addToArrayEnd(T nElement)
+	void DynamicArray::CreateArray(T size)
 	{
-		DynamicArray* m_Copy;
-		DynamicArray* nData;
-		if (m_used == m_capacity)
-		{
-			nData = new DynamicArray[m_capacity * 2];
-			(nData, data);
-		}
+		data = new T[size];
+		m_capacity = size;
+		m_used = 0;
 	}
 
-	T data;
-	DynamicArray* data;
+	void DynamicArray::addToArrayEnd(T nElement)
+	{
+		if (m_used == m_capacity)
+		{
+			DynamicArray* nData = new T[m_capacity * 2];
+			memcpy(data, other.data, sizeof(T) * m_capacity);
+			delete data;
+			data = nData;
+			m_capacity* = 2
+		}
+		data[m_used] = nElement;
+		used += 1;
+	}
+
+	void DynamicArray::addToArrayMid(T nElement)
+	{
+		if (m_used == m_capacity)
+		{
+			nData = new T[m_capacity * 2];
+			T(nData, data);
+			delete data;
+			data = nData;
+			m_capacity* = 2
+		}
+		data[m_used] = nElement;
+		used += 1;
+	}
+
+	void DynamicArray::removeFromArrayEnd(T remElement)
+	{
+		if (m_used < m_capacity)
+		{
+			DynamicArray* nData = new T[m_capacity - 1];
+			memcpy(data, other.data, sizeof(T) * m_capacity);
+			delete data;
+			data = nData;
+			m_capacity -= 1
+		}
+		used -= 1;
+	}
+
+	T* data;
+	//DynamicArray* nData
+	//DynamicArray* data;
 	int m_capacity;
 	int m_used;
 	int m_length;

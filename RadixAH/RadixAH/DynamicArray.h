@@ -17,6 +17,7 @@ public:
 		m_pData = new T[initial];
 		m_nCapacity = initial;
 		m_nUsed = 0;
+		memset(&m_nullValue, 0, sizeof(T));
 	}
 
 	~DynamicArray() 
@@ -26,7 +27,7 @@ public:
 
 	DynamicArray (const DynamicArray& other)
 	{
-		m_pData = new T[other.m_nCapacity];
+		m_nCapacity = other.m_nCapacity;
 		m_nUsed = other.m_nUsed;
 
 		m_pData = new T[m_nCapacity];
@@ -43,23 +44,23 @@ public:
 		return *this;
 	}
 
-	//DynamicArray(DynamicArray&& other)
-	//{
-	//	m_nCapacity = other.m_nCapacity;
-	//	m_pData = other.m_pData;
-	//	other.m_nCapacity = 0;
-	//	other.m_pData = nullptr;
-	//}
+	DynamicArray(DynamicArray&& other)
+	{
+		m_nCapacity = other.m_nCapacity;
+		m_pData = other.m_pData;
+		other.m_nCapacity = 0;
+		other.m_pData = nullptr;
+	}
 
-	////DynamicArray& operator= (DynamicArray&& other)
-	////{
-	////	m_nCapacity = other.m_nCapacity;
-	////	m_pData = other.m_pData;
-	////	other.m_nCapacity = 0;
-	////	other.m_pData = nullptr;
+	DynamicArray& operator= (DynamicArray&& other)
+	{
+		m_nCapacity = other.m_nCapacity;
+		m_pData = other.m_pData;
+		other.m_nCapacity = 0;
+		other.m_pData = nullptr;
 
-	////	return *this;
-	////}
+		return *this;
+	}
 
 	void DynamicArray::addToArrayEnd(T nElement)
 	{
@@ -106,6 +107,11 @@ public:
 
 	void Insert(int index, T value)
 	{
+		if (index >= m_nUsed)
+		{
+			return ;
+		}
+
 		if (m_nUsed >= m_nCapacity)
 		{
 			Resize();
@@ -124,6 +130,10 @@ public:
 
 	T remove(int index)
 	{
+		if (index >= m_nUsed)
+		{
+			return 0;
+		}
 		//backup value removed from array
 		T value = m_pData[index];
 		//shuffle all other values across to fill removed space 
@@ -138,12 +148,21 @@ public:
 
 	T popBack()
 	{
+		if (m_nUsed <= 0)
+		{
+			return m_nullValue;
+		}
 		--m_nUsed;
 		return m_pData[m_nUsed];
 	}
 
 	T popFront()
 	{
+		if (m_nUsed <= 0)
+		{
+			return m_nullValue;
+		}
+
 		return remove(0)
 	}
 
@@ -168,6 +187,10 @@ public:
 
 	T& operator[](const int index)
 	{
+		if (index >= m_nUsed)
+		{
+			return m_nullValue;
+		}
 		return m_pData[index];
 	}
 
@@ -202,5 +225,5 @@ protected:
 	T* m_pData;
 	int m_nCapacity;
 	int m_nUsed;
-	//int m_length;
+	T m_nullValue;
 };

@@ -3,7 +3,8 @@
 template <typename T>
 class ListNode
 {
-public:
+
+public: 
 	ListNode() {};
 	~ListNode() {};
 
@@ -11,4 +12,3 @@ public:
 	ListNode* next;
 	ListNode* prev;
 };
-

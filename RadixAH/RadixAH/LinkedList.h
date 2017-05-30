@@ -58,7 +58,7 @@ public:
 		insert(value, current, current->next);
 	}
 
-	T First()
+	T Begin()
 	{
 		if (start->next == end)
 		{
@@ -72,7 +72,7 @@ public:
 		}
 	}
 
-	T Last()
+	T End()
 	{
 		if (start->next == end)
 		{
@@ -91,7 +91,7 @@ public:
 			return nodeCount;
 	}
 
-	bool empty()
+	bool Empty()
 	{
 		if (start->next == end)
 			return true;

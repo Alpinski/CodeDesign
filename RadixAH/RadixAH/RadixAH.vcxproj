@@ -142,13 +142,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BaseState.h" />
     <ClInclude Include="DynamicArray.h" />
     <ClInclude Include="Entity.h" />
+    <ClInclude Include="Graph.h" />
+    <ClInclude Include="GraphNode.h" />
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="ListNode.h" />
     <ClInclude Include="ObjectPool.h" />
     <ClInclude Include="Queue.h" />
     <ClInclude Include="Stack.h" />
+    <ClInclude Include="StateMachine.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Entity.cpp" />

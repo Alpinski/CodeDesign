@@ -142,7 +142,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="BaseState.h" />
+    <ClInclude Include="C:\Users\s171102\Desktop\Student Resources\Quadtree\project2D\State.h" />
+    <ClInclude Include="C:\Users\s171102\Desktop\Student Resources\Quadtree\project2D\StateMachine.h" />
     <ClInclude Include="DynamicArray.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Graph.h" />
@@ -152,9 +153,10 @@
     <ClInclude Include="ObjectPool.h" />
     <ClInclude Include="Queue.h" />
     <ClInclude Include="Stack.h" />
-    <ClInclude Include="StateMachine.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="C:\Users\s171102\Desktop\Student Resources\Quadtree\project2D\State.cpp" />
+    <ClCompile Include="C:\Users\s171102\Desktop\Student Resources\Quadtree\project2D\StateMachine.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="ObjectPool.cpp" />

@@ -16,34 +16,34 @@ public:
 
 	bool IsEmpty()
 	{
-		return(m_pQue.Size() == 0);
+		return(m_pQue->Size() == 0);
 	}
 
 	int Size()
 	{
-		return m_pQue.Size();
+		return m_pQue->Size();
 	}
 
 	void Push(T value)
 	{
-		m_pQue.PushBack(value);
+		m_pQue->PushBack(value);
 	}
 
 	T Top()
 	{
-		m_pQue.End();
+		m_pQue->End();
 	}
 
 	T popFront()
 	{
-		m_pQue.popFront();
+		m_pQue->popFront();
 	}
 
 	T Empty()
 	{
-		m_pQue.Empty();
+		m_pQue->Empty();
 	}
 
-	LinkedList<T> m_pQue;
+	LinkedList<T>* m_pQue;
 };
 

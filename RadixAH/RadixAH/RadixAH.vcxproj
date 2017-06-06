@@ -148,6 +148,7 @@
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Graph.h" />
     <ClInclude Include="GraphNode.h" />
+    <ClInclude Include="Heap.h" />
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="ListNode.h" />
     <ClInclude Include="ObjectPool.h" />
@@ -158,6 +159,7 @@
     <ClCompile Include="C:\Users\s171102\Desktop\Student Resources\Quadtree\project2D\State.cpp" />
     <ClCompile Include="C:\Users\s171102\Desktop\Student Resources\Quadtree\project2D\StateMachine.cpp" />
     <ClCompile Include="Entity.cpp" />
+    <ClCompile Include="Heap.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="ObjectPool.cpp" />
   </ItemGroup>

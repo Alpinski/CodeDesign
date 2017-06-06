@@ -6,7 +6,7 @@ template<typename T>
 class DynamicArray
 {
 public:
-	DynamicArray(int initialSize)
+	DynamicArray(int initialSize = 0)
 	{
 		int initial = initialSize;
 		if (initial <= 0)

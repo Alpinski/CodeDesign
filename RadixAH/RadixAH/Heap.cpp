@@ -43,8 +43,19 @@ void Heap::Push(int value)
 }
 
 void Heap::Remove(int value)
-{
+{	
+	int index = GetSize();
 	m_pValueArray.remove(value);
+	int parent = floor((index - 1) / 2);
+	while (m_pValueArray[index] > m_pValueArray[parent])
+	{
+		int temp;
+		temp = m_pValueArray[index];
+		m_pValueArray[index] = m_pValueArray[parent];
+		m_pValueArray[parent] = temp;
+		index = parent;
+		parent = floor((index - 1) / 2);
+	}
 }
 
 int Heap::GetSize()

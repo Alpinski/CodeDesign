@@ -151,6 +151,7 @@
     <ClInclude Include="Heap.h" />
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="ListNode.h" />
+    <ClInclude Include="Map.h" />
     <ClInclude Include="ObjectPool.h" />
     <ClInclude Include="Queue.h" />
     <ClInclude Include="Stack.h" />
